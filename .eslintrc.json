@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "typescript-eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "typescript"],
+  "rules": {
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "windows"],
+    "quotes": [2, "single"],
+    "semi": ["error", "always"],
+    "no-console": ["off"],
+    "jsx-quotes": [2, "prefer-double"]
+  }
+}
