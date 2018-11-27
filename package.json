@@ -6,12 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server --inline --mode=development",
     "build": "webpack --mode=production",
-    "eslint": "eslint src --ext .ts,.tsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre-commit": "lint"
   },
-  "pre-commit": [
-    "eslint"
-  ],
   "author": "FLDNF",
   "license": "ISC",
   "dependencies": {
