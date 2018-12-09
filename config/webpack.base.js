@@ -6,14 +6,14 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve('./', 'dist'),
-    publicPath: 'dist',
-    filename: 'bundle.js',
+    publicPath: 'js',
+    filename: 'js/bundle.js',
   },
 
   devServer: {
     inline: true,
     port: 3333,
-    contentBase: path.join(__dirname, './public'),
+    contentBase: path.join(__dirname, 'public'),
   },
   plugins: [
     new HtmlWebpackPlugin({

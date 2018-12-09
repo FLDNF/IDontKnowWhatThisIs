@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --mode=development",
-    "build": "webpack --mode=production",
-    "lint": "eslint src --ext .ts,.tsx",
+    "start": "webpack-dev-server --inline --config ./config/webpack.dev.js",
+    "build": "webpack --config ./config/webpack.prod.js",
+    "lint": "eslint src --ext .ts,.tsx,.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-commit": "lint"
   },
@@ -16,9 +16,11 @@
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
+    "webpack-merge": "^4.1.4",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.1",
     "eslint": "^5.9.0",

@@ -10,9 +10,13 @@ export interface HelloProps {
 export default class Hello extends React.Component<HelloProps, {}> {
   render() {
     console.log(66);
+    console.log(process.env);
+    debugger;
     return (
       <h1>
         Hello from 111{this.props.compiler} and {this.props.framework}!
+        {process.env.NODE_ENV}
+        {process.env.TEST_1}
       </h1>
     );
   }
