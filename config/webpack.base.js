@@ -1,13 +1,15 @@
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const DEV = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve('./', 'dist'),
-    publicPath: 'js',
-    filename: 'js/bundle.js',
+    publicPath: DEV ? 'js' : './',
+    filename: DEV ? 'bundle.js' : 'js/bundle.js',
   },
 
   devServer: {
@@ -20,6 +22,11 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
     }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: 'css/style.css',
+    }),
   ],
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
@@ -28,29 +35,25 @@ module.exports = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
-
+  // externals:{
+  //   //可以把外部的变量或模块加载进来,比如cdn引入的jquery,想要按需模块化引入
+  //    'jquery':'window.jQuery'
+  // },
   module: {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
       {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-            },
-          },
-          {
-            loader: 'less-loader',
-          },
+          'css-loader',
+          'postcss-loader',
+          'less-loader',
         ],
       },
-
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],

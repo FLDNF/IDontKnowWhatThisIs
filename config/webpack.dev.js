@@ -6,9 +6,6 @@ const baseConfig = require('./webpack.base');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
-  output: {
-    filename: 'bundle.js',
-  },
   devServer: {
     contentBase: path.join(__dirname, '../public/dev'),
   },
