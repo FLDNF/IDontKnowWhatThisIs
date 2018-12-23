@@ -3,7 +3,7 @@ import * as React from 'react';
 // import { BrowserRouter } from 'react-router-dom';
 import { Route, HashRouter, Switch } from 'react-router-dom';
 
-import HomePage from '../pages/HomePage';
+import HomePage from '../pages/Home/HomePage';
 import AboutPage from '../pages/AboutPage';
 import MessagePage from '../pages/MessagePage';
 

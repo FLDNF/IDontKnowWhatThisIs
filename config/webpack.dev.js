@@ -6,9 +6,6 @@ const baseConfig = require('./webpack.base');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
-  devServer: {
-    contentBase: path.join(__dirname, '../public/dev'),
-  },
   plugins: [
     new webpack.DefinePlugin({
       process: {
