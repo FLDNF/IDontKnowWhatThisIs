@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import * as styles from './HomePage.less';
 
-const image_test = require('@images/image_test.jpg');
+const image_test = require('~/static/images/image_test.jpg');
 
 const Abc = styled.div`
   width: 100px;

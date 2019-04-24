@@ -36,7 +36,7 @@ module.exports = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
-      '@images': path.resolve('src/static/images'),
+      '~': path.resolve('src'),
     },
   },
   // externals:{

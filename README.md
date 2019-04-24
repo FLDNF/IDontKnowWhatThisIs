@@ -43,3 +43,17 @@
         </div>;
       }
     }
+
+### 组件 Prop Type
+
+https://github.com/fi3ework/blog/issues/22
+
+    export declare interface AppProps {
+      children1: JSX.Element; // bad
+      children2: JSX.Element | JSX.Element[]; // meh
+      children3: React.ReactChild | React.ReactChildren; // better
+      children: React.ReactNode; // best
+      style?: React.CSSProperties; // for style
+      onChange?: (e: React.FormEvent<HTMLInputElement>) => void; // form events!
+      props: Props & React.HTMLProps<HTMLButtonElement> // to impersonate all the props of a HTML element
+    }
